@@ -74,5 +74,17 @@ namespace EmployeePayrollRESTTestProject
             Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.OK);
             var result = JsonConvert.DeserializeObject<Employee>(response.Content);
         }
+        /// <summary>
+        /// UC 5 - Delete Employee
+        /// </summary>
+        [TestMethod]
+        public void DeleteEmpoyeeByCallingDELETEApi()
+        {
+            IRestResponse res = webService.DeleteEmployee();
+            IRestResponse response = webService.GetEmployeeList();
+            List<Employee> result = JsonConvert.DeserializeObject<List<Employee>>(response.Content);
+            Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.OK);
+            Assert.AreEqual(8, result.Count);
+        }
     }
 }

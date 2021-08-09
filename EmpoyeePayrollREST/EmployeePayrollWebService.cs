@@ -55,5 +55,12 @@ namespace EmpoyeePayrollREST
             IRestResponse response = client.Execute(request);
             return response;
         }
+        //Delete Employee from JSON
+        public IRestResponse DeleteEmployee()
+        {
+            RestRequest request = new RestRequest("/employees/6", Method.DELETE);
+            IRestResponse response = client.Execute(request);
+            return response;
+        }
     }
 }

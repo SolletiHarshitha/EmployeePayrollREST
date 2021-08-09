@@ -14,11 +14,9 @@ namespace EmpoyeePayrollREST
             //Create object
             EmployeePayrollWebService webService = new EmployeePayrollWebService();
             Employee employee = new Employee();
-           
-            //Update employee
-            employee.Name = "Kevin";
-            employee.Salary = 74000;
-            webService.UpdateSalary(employee);
+
+            //Delete employee
+            webService.DeleteEmployee();
 
             //Get employee
             webService.GetEmployeeList();
