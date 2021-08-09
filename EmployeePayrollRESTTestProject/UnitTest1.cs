@@ -62,5 +62,17 @@ namespace EmployeePayrollRESTTestProject
             List<Employee> responseData = JsonConvert.DeserializeObject<List<Employee>>(response.Content);
             Assert.AreEqual(9,responseData.Count);
         }
+        /// <summary>
+        /// UC 4 - Update Salary
+        /// </summary>
+        [TestMethod]
+        public void UpdateSalaryByCallingPUTApi()
+        {
+            employee.Name = "Kevin";
+            employee.Salary = 74000;
+            IRestResponse response = webService.UpdateSalary(employee);
+            Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.OK);
+            var result = JsonConvert.DeserializeObject<Employee>(response.Content);
+        }
     }
 }

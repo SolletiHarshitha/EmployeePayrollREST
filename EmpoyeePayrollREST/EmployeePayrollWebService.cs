@@ -43,5 +43,17 @@ namespace EmpoyeePayrollREST
                 AddEmployee(emp);
             }
         }
+        //Update Salary to JSON
+        public IRestResponse UpdateSalary(Employee employee)
+        {
+            RestRequest request = new RestRequest("/employees/9", Method.PUT);
+            JsonObject json = new JsonObject();
+            json.Add("name", employee.Name);
+            json.Add("salary", employee.Salary);
+            //Adding into JSON file
+            request.AddParameter("application/json", json, ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            return response;
+        }
     }
 }

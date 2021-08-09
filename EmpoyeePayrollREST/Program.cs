@@ -14,17 +14,11 @@ namespace EmpoyeePayrollREST
             //Create object
             EmployeePayrollWebService webService = new EmployeePayrollWebService();
             Employee employee = new Employee();
-            Employee emp1 = new Employee();
-
-            //Add employee
-            employee.Name = "Richard";
-            employee.Salary = 75000;
-            employeeList.Add(employee);
-            emp1.Name = "Kevin";
-            emp1.Salary = 84000;
-            employeeList.Add(emp1);
-            //Add multiple employees
-            webService.AddMultipleEmployees(employeeList);
+           
+            //Update employee
+            employee.Name = "Kevin";
+            employee.Salary = 74000;
+            webService.UpdateSalary(employee);
 
             //Get employee
             webService.GetEmployeeList();
