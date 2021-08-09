@@ -34,5 +34,14 @@ namespace EmpoyeePayrollREST
             IRestResponse response = client.Execute(request);
             return response;
         }
+        //Add multiple employees to JSON
+        public void AddMultipleEmployees(List<Employee> employeeList)
+        {
+            RestRequest request = new RestRequest("/employees", Method.POST);
+            foreach(Employee emp in employeeList)
+            {
+                AddEmployee(emp);
+            }
+        }
     }
 }

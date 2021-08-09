@@ -10,14 +10,21 @@ namespace EmpoyeePayrollREST
         static void Main(string[] args)
         {
             Console.WriteLine("Employee Payroll using REST");
+            List<Employee> employeeList = new List<Employee>();
             //Create object
             EmployeePayrollWebService webService = new EmployeePayrollWebService();
             Employee employee = new Employee();
+            Employee emp1 = new Employee();
 
             //Add employee
-            employee.Name = "Michael";
-            employee.Salary = 84000;
-            webService.AddEmployee(employee);
+            employee.Name = "Richard";
+            employee.Salary = 75000;
+            employeeList.Add(employee);
+            emp1.Name = "Kevin";
+            emp1.Salary = 84000;
+            employeeList.Add(emp1);
+            //Add multiple employees
+            webService.AddMultipleEmployees(employeeList);
 
             //Get employee
             webService.GetEmployeeList();
